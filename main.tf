@@ -26,10 +26,11 @@ resource "google_compute_firewall" "secure_rules" {
     google_compute_network.vpc
   ]
 
-  name          = "${var.vpc.name}-secure-rules"
-  network       = "${var.vpc.name}"
-  description   = "${var.vpc.name} secure rules"
-  source_ranges = concat(["${jsondecode(data.http.myip.body).ip}/32"], "${var.secure_rules.sources}")
+  name           = "${var.vpc.name}-secure-rules"
+  network        = "${var.vpc.name}"
+  description    = "${var.vpc.name} secure rules"
+  enable_logging = true
+  source_ranges  = concat(["${jsondecode(data.http.myip.body).ip}/32"], "${var.secure_rules.sources}")
   allow {
     protocol = "${var.secure_rules.protocol}"
     ports    = "${var.secure_rules.ports}"
