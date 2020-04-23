@@ -10,14 +10,17 @@ export GCP_REGION='us-central1'
 ```
 # Setup
 ## Initialization
+Initialize the terraform environment
 ```
 terraform init
 ```
 ## Plan Execution
+Run the plan
 ```
 terraform plan
 ```
 ## Apply
+Apply and wait for the completion of the setup
 ```
 terraform apply -auto-approve
 ```
@@ -26,6 +29,7 @@ terraform apply -auto-approve
 terraform output
 ```
 # Teardown
+Teardown the environment
 ```
 terraform destroy -refresh=false
 ```

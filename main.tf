@@ -57,7 +57,7 @@ resource "google_compute_firewall" "public_rules" {
   depends_on = [
     google_compute_network.vpc
   ]
-  
+
   name        = "${var.vpc.name}-public-rules"
   network     = "${var.vpc.name}"
   description = "${var.vpc.name} public rules"
